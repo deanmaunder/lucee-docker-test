@@ -1,0 +1,23 @@
+version: "3.9"
+services: 
+    lucee5310:
+        build:
+            dockerfile: Dockerfile
+        privileged: true
+        volumes:
+            - .:/app/dev
+            - ./debuglogs5310:/usr/local/lib/serverHome/WEB-INF/lucee-web/logs
+        environment:
+            BOX_SERVER_DEBUG: true
+            BOX_SERVER_APP_CFENGINE: "lucee@5.3.10"
+
+    lucee5309:
+        build:
+            dockerfile: Dockerfile
+        privileged: true
+        volumes:
+            - .:/app/dev
+            - ./debuglogs5309:/usr/local/lib/serverHome/WEB-INF/lucee-web/logs
+        environment:
+            BOX_SERVER_DEBUG: true
+            BOX_SERVER_APP_CFENGINE: "lucee@5.3.9"
